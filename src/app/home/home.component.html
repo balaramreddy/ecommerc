@@ -1,0 +1,28 @@
+
+<div>
+    <form [formGroup]="signform" (ngSubmit)="postdata()">
+        <div class="form-group mb-2">
+            <label for="email">email</label>
+            <input class="form-control" type="email" formControlName='email' id="email">
+        </div>
+        <div class="form-group mb-2">
+            <label for="password">password</label>
+            <input class="form-control" type="password" formControlName='password' id="password">
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!signform.valid">save</button>
+    </form>
+</div>
+
+
+<div class="p-4">
+    <app-child>
+        <p>First Paragraph</p>
+        <p>Second Paragraph</p>
+        <p>Third Paragraph</p>
+      </app-child>
+      
+</div>
+
+
+
+

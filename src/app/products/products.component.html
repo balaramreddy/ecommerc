@@ -1,0 +1,69 @@
+<div class="row w-100">
+    <header class="bg-dark py-5 w-100 m-0">
+
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Welcome to the Store</h1>
+                <p class="lead fw-normal text-white-50 mb-0">All Kind of Products Available</p>
+            </div>
+        </div>
+    </header>
+    <!-- <div class="row w-100 m-0 mt-3">
+        <form class="row g-2 m-0">
+            <div class="col">
+                <label for="search" class="visually-hidden">Search</label>
+                <input type="text" class="form-control" id="search" placeholder="search" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="col">
+                <label for="name" class="visually-hidden">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Name" appNameValidation>
+            </div>
+            <div class="col">
+                <label for="phonenumber" class="visually-hidden">phonenumber</label>
+                <input type="text" class="form-control" id="phonenumber" placeholder="Phonenumber" appPhonenumber>
+            </div>
+            <div class="col">
+                <label for="price" class="visually-hidden">Price</label>
+                <input type="text" class="form-control" id="price" placeholder="price">
+            </div>
+        </form>
+    </div> -->
+    <section class="py-4">
+        <div class="container-fuild px-4">
+            <div class="mb-5" *ngFor="let category of getGroupKeys()">
+                <h3 class="mb-4">{{ category }}</h3>
+                <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-5 justify-content-center">
+                    <div class="col mb-4" *ngFor="let item of group[category]">
+                        <div class="card h-100">
+                            <div class="badge text-white position-absolute" [ngClass]="item.stock > 5 ? 'bg-success' : 'bg-danger'" style="top: 0.5rem; right: 0.5rem">
+                                {{ item.stock > 5 ? 'In Stock' : 'Low Stock' }}
+                            </div>
+                            <img class="card-img-top" [src]="item.thumbnail" [alt]="item.title" />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder">{{ item.title | capitalized }}</h5>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <span class="text-muted text-decoration-line-through">$20.00</span>
+                                    ${{ item.price }}
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="d-flex justify-content-between">
+                                    <a class="btn btn-outline-dark mt-auto" (click)="viewItem(item)">View Item</a>
+                                    <a class="btn btn-outline-dark mt-auto" (click)="showData(item)">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
